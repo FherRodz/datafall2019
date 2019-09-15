@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.uprm.cse.datastructures.bag.Bag;
-import edu.uprm.cse.datastructures.bag.DynamicBag;
+import edu.uprm.cse.datastructures.bag2.Bag;
+import edu.uprm.cse.datastructures.bag2.DynamicBag;
 
 public class DynamicBagTest {
 	

@@ -1,6 +1,34 @@
 package edu.uprm.cse.datastructures.bag;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class DynamicBag implements Bag{
+	
+
+	private class BagIterator<Object> implements Iterator<Object>{
+		
+		private int current;
+		
+		public BagIterator() {
+			super();
+			this.current = 0;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return this.current < currentSize;
+		}
+
+		@Override
+		public Object next() {
+			if(this.hasNext())
+				return (Object) elements[this.current++];
+			else
+				throw new NoSuchElementException();
+		}
+		
+	}
 
     private Object[] elements;
     private int currentSize;
@@ -97,5 +125,15 @@ public class DynamicBag implements Bag{
 		}
 		this.currentSize = 0;		
 	}
+	
+	public Object[] toArray() {
+		return this.elements;
+	}
+	public Iterator<Object> iterator() {
+		return new BagIterator<Object>();
+		
+	}
+	
+	
 
 }

@@ -1,6 +1,6 @@
 package edu.uprm.cse.datastructures.bag;
 
-public interface Bag {
+public interface Bag extends Iterable<Object>{
     public int size();
     
     public boolean isEmpty();

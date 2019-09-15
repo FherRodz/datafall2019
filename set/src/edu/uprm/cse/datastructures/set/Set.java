@@ -1,6 +1,6 @@
 package edu.uprm.cse.datastructures.set;
 // Comment for eclipse to work
-public interface Set<E> {
+public interface Set<E> extends Iterable<E>{
     public int size();
     
     public boolean isEmpty();

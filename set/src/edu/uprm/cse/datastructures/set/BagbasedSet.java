@@ -1,9 +1,40 @@
 package edu.uprm.cse.datastructures.set;
-// Comment for eclipse to work
-import edu.uprm.cse.datastructures.bag.Bag;
-import edu.uprm.cse.datastructures.bag.DynamicBag;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+import edu.uprm.cse.datastructures.bag2.Bag;
+import edu.uprm.cse.datastructures.bag2.DynamicBag;
 
 public class BagbasedSet<E> implements Set<E> {
+	
+	
+	private class ReverseBagBasedIterator<E> implements Iterator<E>{
+
+		E[] temp;
+		private int curr;
+		
+		public ReverseBagBasedIterator() {
+			super();
+			this.temp = (E[]) theBag.toArray();
+			this.curr = temp.length-1;
+		}
+		
+		@Override
+		public boolean hasNext() {
+			return this.curr >= 0;
+		}
+
+		@Override
+		public E next() {
+			if(this.hasNext()) 
+				return this.temp[this.curr--];
+			else
+				throw new NoSuchElementException();
+				
+		}
+		
+	}
+	
 	// This is called object composition and it is preferred over inheritance 
 	private Bag<E> theBag; 
 
@@ -97,6 +128,18 @@ public class BagbasedSet<E> implements Set<E> {
 	@Override
 	public E[] toArray() {
 		return this.theBag.toArray();
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		return this.theBag.iterator();
+//		return new ReverseBagBasedIterator<E>();
+
+	}
+	
+	public Iterator<E> reverseIterator() {
+		return new ReverseBagBasedIterator<E>();
+		
 	}
 
 }
