@@ -1,6 +1,8 @@
 package edu.uprm.cse.datastructures.set;
 // Comment
 
+import java.util.Iterator;
+
 public class ArraySet<E> implements Set<E> {
 	private E[] elements;
 	private int currentSize;
@@ -136,5 +138,11 @@ public class ArraySet<E> implements Set<E> {
 		
 		return result;
 
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
